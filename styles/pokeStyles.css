@@ -1,0 +1,143 @@
+@font-face {
+  font-family: "pokeFont";
+  src: url("/styles/fonts/Pokemon_Solid.ttf");
+}
+
+@font-face {
+  font-family: "pixel7";
+  src: url("/styles/fonts/advanced_pixel-7.ttf");
+}
+
+body {
+  margin: 0 auto;
+  background-color: whitesmoke;
+}
+
+.container {
+  margin: auto;
+  width: 85%;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.header {
+  background-color: #3b4cca;
+  flex: 100%;
+  height: 20%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+#pokeLogo {
+  color: #ffde00;
+  font-family: "pokeFont";
+  flex: 1 1 31%;
+  text-align: center;
+  height: 100%;
+  letter-spacing: 3px;
+}
+
+#pokeRegions {
+  flex: 1 1 61%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: "pixel7";
+  font-size: 2rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+}
+
+.pokeRegi {
+  flex: 1 1 21%;
+  height: 50%;
+  text-align: center;
+}
+
+.pokeRegi:hover{
+    background-color: #cc0000;
+    color: #ffde00;
+    font-weight: bolder;
+
+}
+
+#pokedex {
+  flex: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 70%;
+}
+
+#pokeBox {
+  flex: 1 1 61%;
+  display: flex;
+  flex-wrap: wrap;
+  height: 100%;
+  overflow: auto;
+}
+
+#pokeDescription {
+  flex: 1 1 31%;
+  height: 100%;
+  border: 1px solid black;
+}
+
+.pokeCard {
+  flex: 1 1 30%;
+  background-color: #c4d6d9;
+  font-family: "pixel7";
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+.pokeCard:hover {
+  background-color: #5d6ce4;
+}
+
+.sprite {
+  width: 96px;
+  height: 96px;
+  display: block;
+  margin: 0 auto;
+}
+
+.pokeDesc {
+  text-align: center;
+}
+
+.pokeName {
+  text-transform: capitalize;
+}
+
+.footer {
+  flex: 100%;
+  height: 10%;
+  background-color: #3b4cca;
+  margin: 0;
+  text-align: center;
+}
+
+.lds-dual-ring {
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+}
+.lds-dual-ring:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid #3b4cca;
+  border-color: #3b4cca transparent #3b4cca transparent;
+  animation: lds-dual-ring 1.5s linear infinite;
+}
+@keyframes lds-dual-ring {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
