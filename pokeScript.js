@@ -5,7 +5,12 @@ async function getPokeData(pokeNum) {
   return pokeInfo;
 }
 
-//getPokeData(1);
+async function prueba(){
+  let prueba = await getPokeData(25);
+  console.log(prueba.types[0].type.name)
+}
+
+//prueba();
 
 async function getPokedex(pokeLimit, pokeOffset) {
   document.getElementById("pokeBox").innerHTML = '<div class="lds-dual-ring"></div>';
@@ -15,7 +20,7 @@ async function getPokedex(pokeLimit, pokeOffset) {
   for (var i = pokeOffset + 1; i <= pokeLimit + pokeOffset; i++) {
     let currentPokemon = await getPokeData(i);
     output += `
-    <div class="pokeCard">
+    <div class="pokeCard ${currentPokemon.types[0].type.name}">
         <img class="sprite" src="${currentPokemon.sprites.front_default}">
         <div class="pokeDesc">
           <p>No. ${currentPokemon.id}</p>
