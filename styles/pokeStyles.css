@@ -27,6 +27,7 @@ body {
   height: 20%;
   display: flex;
   flex-wrap: wrap;
+  border-radius: 15px;
 }
 
 #pokeLogo {
@@ -41,26 +42,36 @@ body {
 
 #pokeRegions {
   flex: 1 1 61%;
-  height: 100%;
   display: flex;
   flex-wrap: wrap;
   font-family: "pixel7";
   font-size: 2rem;
   font-weight: bold;
   letter-spacing: 1px;
+  padding: 3px;
 }
 
-.pokeRegi {
+.pokeRegion {
   flex: 1 1 21%;
-  height: 50%;
+  /*height: 50%;*/
   text-align: center;
+  margin: 3px;
+  border-radius: 15px;
+  border: 3px solid transparent;
 }
 
-.pokeRegi:hover{
-    background-color: #cc0000;
-    color: #ffde00;
-    font-weight: bolder;
+.pokeRegion:hover {
+  background-color: #cc0000;
+  color: #ffde00;
+  font-weight: bolder;
+  border: 3px solid rgb(34, 31, 31);
+}
 
+.selectedRegion {
+  background-color: #cc0000;
+  color: #ffde00;
+  font-weight: bolder;
+  border: 3px solid rgb(34, 31, 31);
 }
 
 #pokedex {
@@ -84,6 +95,7 @@ body {
   flex: 1 1 31%;
   height: 100%;
   background-color: #ffde00;
+  border-radius: 15px;
 }
 
 .pokeCard {
@@ -98,65 +110,63 @@ body {
 }
 
 .pokeCard:hover {
-  /* background-color: #5d6ce4; */
   border: 3px solid royalblue;
 }
 
-.normal{
+.normal {
   background-color: #a8a878;
 }
-.fire{
+.fire {
   background-color: #f08030;
 }
-.fighting{
+.fighting {
   background-color: #c03028;
 }
-.water{
+.water {
   background-color: #6890f0;
 }
-.flying{
+.flying {
   background-color: #a890f0;
 }
-.grass{
+.grass {
   background-color: #78c850;
 }
-.poison{
+.poison {
   background-color: #a040a0;
 }
-.electric{
+.electric {
   background-color: #f8d030;
 }
-.ground{
+.ground {
   background-color: #e0c068;
 }
-.psychic{
+.psychic {
   background-color: #f85888;
 }
-.rock{
+.rock {
   background-color: #b8a038;
 }
-.ice{
+.ice {
   background-color: #98d8d8;
 }
-.bug{
+.bug {
   background-color: #a8b820;
 }
-.dragon{
+.dragon {
   background-color: #7038f8;
 }
-.ghost{
+.ghost {
   background-color: #705898;
 }
-.dark{
+.dark {
   background-color: #705848;
 }
-.steel{
+.steel {
   background-color: #b8b8d0;
 }
-.fairy{
+.fairy {
   background-color: #ee99ac;
 }
-
 
 .sprite {
   width: 96px;
@@ -179,6 +189,8 @@ body {
   background-color: #3b4cca;
   margin: 0;
   text-align: center;
+  font-family: "pixel7";
+  font-size: 2rem;
 }
 
 .lds-dual-ring {
