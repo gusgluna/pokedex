@@ -176,6 +176,13 @@ body {
   margin: 0 auto;
 }
 
+.artwork{
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
 .pokeDesc {
   text-align: center;
 }
@@ -202,6 +209,7 @@ body {
 .lds-dual-ring:after {
   content: " ";
   display: block;
+  align-self: center;
   width: 64px;
   height: 64px;
   margin: 8px;

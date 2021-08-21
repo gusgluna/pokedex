@@ -56,14 +56,14 @@ async function getPokedex(pokeLimit, pokeOffset) {
   // while wait to fetch all the info show a loading animation
   document.getElementById("pokeBox").innerHTML =
     '<div class="lds-dual-ring"></div>';
-  //Define a variable to store all of each pokemon of the region. 
+  //Define a variable to store all of each pokemon of the region.
   let output = "";
   //for loop to get all the info of every pokemon
   for (var i = pokeOffset + 1; i <= pokeLimit + pokeOffset; i++) {
     let currentPokemon = await getPokeData(i);
     // every iteration update the output varible to store new pokemon data
     output += `
-    <div class="pokeCard ${currentPokemon.types[0].type.name}">
+    <div class="pokeCard ${currentPokemon.types[0].type.name}" id="${currentPokemon.id}">
     <img class="sprite" src="${currentPokemon.sprites.front_default}">
         <div class="pokeDesc">
           <p>No. ${currentPokemon.id}</p>
@@ -74,9 +74,29 @@ async function getPokedex(pokeLimit, pokeOffset) {
   }
   //insert all the info in the div pokeBox
   document.getElementById("pokeBox").innerHTML = output;
+
+  const pokemons = document.querySelectorAll(".pokeCard");
+  //console.log(pokemons);
+  pokemons.forEach((pokemon) =>
+    pokemon.addEventListener("click", pokemonDescription)
+  );
 }
 
-//to init the dex show the firs 151 pokemons
+async function pokemonDescription() {
+  const pokemonId = this.id;
+  let pokeDesc = await getPokeData(pokemonId);
+  let officialArtwork = pokeDesc.sprites.other['official-artwork'].front_default;
+  let descOutput = `
+  <img class="artwork" src="${officialArtwork}">
+        <div class="pokeDescription">
+          <p>No. ${pokeDesc.id}</p>
+          <P><span class="pokeName">${pokeDesc.name}</span></P>
+          </div>
+  `;
+  document.getElementById("pokeDescription").innerHTML = descOutput;
+}
+
+//to init the pokedex show the firs 151 pokemons
 getPokedex(6, 0);
 
 /*
