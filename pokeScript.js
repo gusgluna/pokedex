@@ -1,5 +1,4 @@
-// Create a function to get data from the API
-
+// Function to get data from the API https://pokeapi.co/api/v2/
 async function getPokeData(pokeNum) {
   let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokeNum}`);
   let pokeInfo = await res.json();
@@ -7,44 +6,21 @@ async function getPokeData(pokeNum) {
   return pokeInfo;
 }
 
+// Select all Region Div
 const pokeRegions = document.querySelectorAll(".pokeRegion");
+
+// Add a event listener to each Region Div
 pokeRegions.forEach((region) => region.addEventListener("click", selectRegion));
-/*
-async function prueba() {
-  let prueba = await getPokeData(25);
-  console.log(prueba.types[0].type.name);
-}
-prueba();
-*/
 
-async function getPokedex(pokeLimit, pokeOffset) {
-  document.getElementById("pokeBox").innerHTML =
-    '<div class="lds-dual-ring"></div>';
-
-  let output = "";
-
-  for (var i = pokeOffset + 1; i <= pokeLimit + pokeOffset; i++) {
-    let currentPokemon = await getPokeData(i);
-    output += `
-    <div class="pokeCard ${currentPokemon.types[0].type.name}">
-        <img class="sprite" src="${currentPokemon.sprites.front_default}">
-        <div class="pokeDesc">
-          <p>No. ${currentPokemon.id}</p>
-          <P><span class="pokeName">${currentPokemon.name}</span></P>
-        </div>
-    </div>
-    `;
-  }
-
-  document.getElementById("pokeBox").innerHTML = output;
-}
-
-
+// This function execute when a region is selected
 async function selectRegion() {
-  pokeRegions.forEach((region) => region.classList.remove('selectedRegion'));
-  this.classList.toggle('selectedRegion');
-  let pokeId = this.id;
-  console.log(pokeId);
+  // First reset all the Region Divs to remove class: "selectedRegion"
+  pokeRegions.forEach((region) => region.classList.remove("selectedRegion"));
+  // Then aply the class: "slectedRegion" to the current select region
+  this.classList.toggle("selectedRegion");
+  // define a constant tath get the id of the region.
+  const pokeId = this.id;
+  // swicht to execute the funcition getPokedex() acord to selected region.
   switch (pokeId) {
     case "kanto":
       await getPokedex(151, 0);
@@ -73,16 +49,52 @@ async function selectRegion() {
   }
 }
 
+// function to get all pokemon info of a region and input on the pokeBox div
+// Need two inputs pokemlimit that mean the number of pokemons to show
+// and pokeoffset thas is the offset btw XD..
+async function getPokedex(pokeLimit, pokeOffset) {
+  // while wait to fetch all the info show a loading animation
+  document.getElementById("pokeBox").innerHTML =
+    '<div class="lds-dual-ring"></div>';
+  //Define a variable to store all of each pokemon of the region. 
+  let output = "";
+  //for loop to get all the info of every pokemon
+  for (var i = pokeOffset + 1; i <= pokeLimit + pokeOffset; i++) {
+    let currentPokemon = await getPokeData(i);
+    // every iteration update the output varible to store new pokemon data
+    output += `
+    <div class="pokeCard ${currentPokemon.types[0].type.name}">
+    <img class="sprite" src="${currentPokemon.sprites.front_default}">
+        <div class="pokeDesc">
+          <p>No. ${currentPokemon.id}</p>
+          <P><span class="pokeName">${currentPokemon.name}</span></P>
+          </div>
+          </div>
+          `;
+  }
+  //insert all the info in the div pokeBox
+  document.getElementById("pokeBox").innerHTML = output;
+}
+
+//to init the dex show the firs 151 pokemons
 getPokedex(6, 0);
 
 /*
-heigth = x/10 = mts
-id numero pokedex
-sprites:
-    front_default
-    front_shiny
-types [array]
-    type.name
-weigth 69/10 kg
+      heigth = x/10 = mts
+      id numero pokedex
+      sprites:
+      front_default
+      front_shiny
+      types [array]
+      type.name
+      weigth 69/10 kg
+      
+      */
 
-*/
+/*
+     async function prueba() {
+       let prueba = await getPokeData(25);
+       console.log(prueba.types[0].type.name);
+     }
+     prueba();
+     */
