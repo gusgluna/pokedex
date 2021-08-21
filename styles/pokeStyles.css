@@ -1,11 +1,11 @@
 @font-face {
   font-family: "pokeFont";
-  src: url("/styles/fonts/Pokemon_Solid.ttf");
+  src: url("styles/fonts/Pokemon_Solid.ttf");
 }
 
 @font-face {
   font-family: "pixel7";
-  src: url("/styles/fonts/advanced_pixel-7.ttf");
+  src: url("styles/fonts/advanced_pixel-7.ttf");
 }
 
 body {
