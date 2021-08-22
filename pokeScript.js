@@ -78,22 +78,40 @@ async function getPokedex(pokeLimit, pokeOffset) {
   const pokemons = document.querySelectorAll(".pokeCard");
   //console.log(pokemons);
   pokemons.forEach((pokemon) =>
-    pokemon.addEventListener("click", pokemonDescription)
+  pokemon.addEventListener("click", pokemonDescription)
   );
 }
 
 async function pokemonDescription() {
+  
+  
   const pokemonId = this.id;
-  let pokeDesc = await getPokeData(pokemonId);
-  let officialArtwork = pokeDesc.sprites.other['official-artwork'].front_default;
+  const pokeDescription = await getPokeData(pokemonId);
+  const officialArtwork =
+  pokeDescription.sprites.other["official-artwork"].front_default;
+  const name = pokeDescription.name;
+  const pokemonTypes =
+  typeof pokeDescription.types[1] != "undefined"
+  ? `${pokeDescription.types[0].type.name} and ${pokeDescription.types[1].type.name}`
+  : `${pokeDescription.types[0].type.name}`;
+  const height = pokeDescription.height / 10;
+  const weight = pokeDescription.weight / 10;
   let descOutput = `
   <img class="artwork" src="${officialArtwork}">
-        <div class="pokeDescription">
-          <p>No. ${pokeDesc.id}</p>
-          <P><span class="pokeName">${pokeDesc.name}</span></P>
-          </div>
+  <div class="description">
+  <p>No. ${pokemonId}</p>
+  <P>Name: <span class="pokeName">${name}</span></P>
+  <p>Types: <span class="pokeData">${pokemonTypes}</span></p>
+  <p>Heigth: ${height} mts.</p>
+  <p>Weigth: ${weight} kg</p>
+  </div>
   `;
+  
   document.getElementById("pokeDescription").innerHTML = descOutput;
+  let actualType = document.getElementById("pokeDescription").classList[0];
+  document.getElementById("pokeDescription").classList.remove(actualType);
+  document.getElementById("pokeDescription").classList.toggle(pokeDescription.types[0].type.name);
+  
 }
 
 //to init the pokedex show the firs 151 pokemons

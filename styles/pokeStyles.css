@@ -10,7 +10,7 @@
 
 body {
   margin: 0 auto;
-  background-color: whitesmoke;
+  background-color: #d4f0f0;
 }
 
 .container {
@@ -22,7 +22,7 @@ body {
 }
 
 .header {
-  background-color: #3b4cca;
+  background-color: #ff5768;
   flex: 100%;
   height: 20%;
   display: flex;
@@ -61,17 +61,17 @@ body {
 }
 
 .pokeRegion:hover {
-  background-color: #cc0000;
+  background-color: #0065a2;
   color: #ffde00;
   font-weight: bolder;
   border: 3px solid rgb(34, 31, 31);
 }
 
 .selectedRegion {
-  background-color: #cc0000;
+  background-color: #0065a2;
   color: #ffde00;
   font-weight: bolder;
-  border: 3px solid rgb(34, 31, 31);
+  border: 3px solid black;
 }
 
 #pokedex {
@@ -87,26 +87,44 @@ body {
   flex-wrap: wrap;
   height: 100%;
   overflow: auto;
-  background-color: white;
+  border-radius: 5%;
+  background-color: #abdee6;
   padding: 5px;
 }
 
 #pokeDescription {
   flex: 1 1 31%;
   height: 100%;
-  background-color: #ffde00;
+  /* background-color: #00b0ba; */
   border-radius: 15px;
+  margin-top: 5px;
+}
+
+.description > p {
+  margin: 0 auto;
+}
+
+.description {
+  font-family: "pixel7";
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
 }
 
 .pokeCard {
-  flex: 1 1 30%;
+  flex: 1 1 20%;
   font-family: "pixel7";
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   font-weight: bold;
   border: 3px solid black;
   /* background-color: thistle; */
   border-radius: 10%;
   margin: 5px;
+  /* height: 200px; */
+}
+
+.pokeCard > p {
+  margin: 0 auto;
 }
 
 .pokeCard:hover {
@@ -169,6 +187,7 @@ body {
   background-color: #ee99ac;
 }
 
+
 .sprite {
   width: 96px;
   height: 96px;
@@ -176,7 +195,7 @@ body {
   margin: 0 auto;
 }
 
-.artwork{
+.artwork {
   width: 200px;
   height: 200px;
   display: block;
@@ -190,15 +209,20 @@ body {
 .pokeName {
   text-transform: capitalize;
 }
+.pokeData{
+  text-transform: capitalize;
+}
 
 .footer {
   flex: 100%;
   height: 10%;
-  background-color: #3b4cca;
+  background-color: #ff5768;
+  border-radius: 10px;
   margin: 0;
   text-align: center;
   font-family: "pixel7";
   font-size: 2rem;
+  margin-top: 10px;
 }
 
 .lds-dual-ring {
