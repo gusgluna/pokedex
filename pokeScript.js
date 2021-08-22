@@ -76,15 +76,12 @@ async function getPokedex(pokeLimit, pokeOffset) {
   document.getElementById("pokeBox").innerHTML = output;
 
   const pokemons = document.querySelectorAll(".pokeCard");
-  //console.log(pokemons);
   pokemons.forEach((pokemon) =>
   pokemon.addEventListener("click", pokemonDescription)
   );
 }
 
 async function pokemonDescription() {
-  
-  
   const pokemonId = this.id;
   const pokeDescription = await getPokeData(pokemonId);
   const officialArtwork =
@@ -97,7 +94,7 @@ async function pokemonDescription() {
   const height = pokeDescription.height / 10;
   const weight = pokeDescription.weight / 10;
   let descOutput = `
-  <img class="artwork" src="${officialArtwork}">
+  <img class="artwork ${pokeDescription.types[0].type.name}" id="pokeArtwork" src="${officialArtwork}">
   <div class="description">
   <p>No. ${pokemonId}</p>
   <P>Name: <span class="pokeName">${name}</span></P>
@@ -108,26 +105,14 @@ async function pokemonDescription() {
   `;
   
   document.getElementById("pokeDescription").innerHTML = descOutput;
-  let actualType = document.getElementById("pokeDescription").classList[0];
-  document.getElementById("pokeDescription").classList.remove(actualType);
-  document.getElementById("pokeDescription").classList.toggle(pokeDescription.types[0].type.name);
+  // let actualType = document.getElementById("pokeDescription").classList[0];
+  // document.getElementById("pokeDescription").classList.remove(actualType);
+  // document.getElementById("pokeDescription").classList.toggle(pokeDescription.types[0].type.name);
   
 }
 
 //to init the pokedex show the firs 151 pokemons
 getPokedex(6, 0);
-
-/*
-      heigth = x/10 = mts
-      id numero pokedex
-      sprites:
-      front_default
-      front_shiny
-      types [array]
-      type.name
-      weigth 69/10 kg
-      
-      */
 
 /*
      async function prueba() {
