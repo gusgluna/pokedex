@@ -5,51 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="styles/pokeStyles.css" />
-    <title>Pokédex</title>
+    <title>Pokédex by gusgluna</title>
   </head>
   <body>
     <div class="container">
-      <div class="header">
+      <header>
         <div id="pokeLogo">
           <h1>Pokédex</h1>
         </div>
-        <div id="pokeRegions">
-          <div class="pokeRegion" id="kanto"> 
-            <span>Kanto</span>
-          </div>
-          <div class="pokeRegion" id="johto">
-            <span>Johto</span>
-          </div>
-          <div class="pokeRegion" id="hoenn">
-            <span>Hoenn</span>
-          </div>
-          <div class="pokeRegion" id="sinnoh">
-            <span>Sinnoh</span>
-          </div>
-          <div class="pokeRegion" id="unova">
-            <span>Unova</span>
-          </div>
-          <div class="pokeRegion" id="kalos">
-            <span>Kalos</span>
-          </div>
-          <div class="pokeRegion" id="alola">
-            <span>Alola</span>
-          </div>
-          <div class="pokeRegion" id="galar">
-            <span>Galar</span>
-          </div>
-        </div>
-      </div>
+        <ul id="pokeRegions">
+          <li class="pokeRegion" id="kanto">Kanto</li>
+          <li class="pokeRegion" id="johto">Johto</li>
+          <li class="pokeRegion" id="hoenn">Hoenn</li>
+          <li class="pokeRegion" id="sinnoh">Sinnoh</li>
+          <li class="pokeRegion" id="unova">Unova</li>
+          <li class="pokeRegion" id="kalos">Kalos</li>
+          <li class="pokeRegion" id="alola">Alola</li>
+          <li class="pokeRegion" id="galar">Galar</li>
+        </ul>
+      </header>
 
       <div id="pokedex">
         <div id="pokeDescription"></div>
 
         <div id="pokeBox">
-          <div class="lds-dual-ring"></div>
+            <div class="lds-dual-ring"></div>
         </div>
       </div>
 
-      <footer class="footer">&copy; gusgluna</footer>
+      <footer>&copy; gusgluna</footer>
     </div>
 
     <script src="pokeScript.js"></script>
