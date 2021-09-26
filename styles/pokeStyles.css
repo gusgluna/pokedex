@@ -90,14 +90,14 @@ header {
 }
 
 #pokeBox {
-  flex: 1 1 70%;
+  width: 70%;
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
   height:100%;
   overflow: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   background-color: var(--main-bg-color);
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
@@ -110,7 +110,7 @@ header {
 }
 
 #pokeDescription {
-  flex: 1 1 25%;
+  width: 30%;
   height: 100%;
   background-color: var(--main-bg-color);
   border-right: 5px solid var(--fourth-color);
@@ -138,7 +138,7 @@ header {
   font-family: var(--main-font);
   font-size: 1rem;
   font-weight: bold;
-  border: 3px solid black;
+  border: 3px solid var(--fourth-color);
   /* background-color: thistle; */
   border-radius: 10%;
   margin: 5px;
@@ -239,14 +239,13 @@ header {
 }
 
 footer {
-  /* flex-basis: calc(10vh - 5px); */
   flex-basis: 10vh;
-  /* height: calc(10% -15px); */
   background-color: var(--main-bg-color);
   border-top: 5px solid var(--fourth-color);
   margin: 0;
   text-align: center;
   font-family: var(--main-font);
+  font-weight: bold;
   font-size: 1rem;
   display: flex;
   align-items: center;
@@ -267,7 +266,7 @@ footer {
   height: 64px;
   margin: 8px;
   border-radius: 50%;
-  border: 6px solid #3b4cca;
+  border: 6px solid #616161;
   border-color: #3b4cca transparent #3b4cca transparent;
   animation: lds-dual-ring 1.5s linear infinite;
 }
