@@ -26,14 +26,30 @@
       </header>
 
       <div id="pokedex">
-        <div id="pokeDescription"></div>
+        <div id="pokeDescription">
+          <img
+            class="artwork grass"
+            id="pokeArtwork"
+            src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/1.png"
+          />
+          <div class="description">
+            <p id="number">No. 1</p>
+            <p>Name: <span class="pokeName" id="name">Bulbasaur</span></p>
+            <p id="typeBadges">
+              Type: <span class="grass typeBadge">grass</span>
+              <span class="poison typeBadge">poison</span>
+            </p id="type">
+            <p id="height">Height: 0.7 mts.</p>
+            <p id="weight">Weight: 6.9 kg</p>
+          </div>
+        </div>
 
         <div id="pokeBox">
-            <div class="lds-dual-ring"></div>
+          <div class="lds-dual-ring"></div>
         </div>
       </div>
 
-      <footer>&copy; gusgluna</footer>
+      <footer><a href="https://www.gusgluna.com">&copy; gusgluna</a></footer>
     </div>
 
     <script src="pokeScript.js"></script>
