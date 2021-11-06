@@ -37,7 +37,7 @@ header {
 #pokeLogo {
   color: #ffde00;
   font-family: "pokeFont";
-  text-shadow: -3px -3px #3B4CCA;
+  text-shadow: -3px -3px #3B4CCA, 3px 3px #3b4cca;
   width: 30%;
   text-align: center;
   height: 100%;

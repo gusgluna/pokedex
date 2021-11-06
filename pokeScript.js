@@ -1,3 +1,4 @@
+// Get information from the pokeAPI
 async function getDescription(id) {
   let res = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
   let data = await res.json();
@@ -77,7 +78,7 @@ async function getPokedex(limit, offset) {
       <img class="sprite" src="${currentPokemon.sprite}">
       <div class="pokeDesc">
         <p>No. ${currentPokemon.no}</p>
-        <P><span class="pokeName">${currentPokemon.name}</span></P>
+        <P><span class="pokeName">${currentPokemon.name.substr(0, 17)}</span></P>
       </div>
     </div>`;
     total++;
@@ -92,6 +93,7 @@ async function getPokedex(limit, offset) {
   );
 }
 
+// Insert the full description of a pokemon
 async function pokemonDescription() {
   const pokemonId = this.id;
   const pokeDescription = await getDescription(pokemonId);
@@ -120,7 +122,7 @@ async function pokemonDescription() {
   }
   document.getElementById("selectPokemonForm").innerHTML = formsList;
 }
-
+// Get pokemon form description 
 async function pokemonDescriptionForm(pokemonId) {
   const pokeDescription = await getDescription(pokemonId);
   document.getElementById("pokeArtwork").src = pokeDescription.artwork;
@@ -142,5 +144,5 @@ async function pokemonDescriptionForm(pokemonId) {
       : `<span class="${pokeDescription.type[0]} typeBadge">${pokeDescription.type[0]}</span> <span class="${pokeDescription.type[1]} typeBadge">${pokeDescription.type[1]}</span>`
   }</p>`;
 }
-//to init the pokedex show the first 151 pokemons
+// Show the first 151 pokemons
 getPokedex(151, 0);
