@@ -258,6 +258,27 @@ header {
 .formBadge:hover{
   cursor: pointer;
 }
+#selectPokemonForm{
+  /* box-shadow: 0 10px 25px rgb(34, 31, 31); */
+  font-family: var(--main-font);
+  font-weight: bold;
+  font-size: 1rem;
+  padding: 0.25em 0.25em;
+  border: 0;
+}
+#formList{
+  position: relative;
+}
+
+.custom-arrow{
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  background: red;
+  height: 1rem;
+  width: 1rem;
+}
 
 footer {
   flex-basis: 10vh;

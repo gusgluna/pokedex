@@ -26,10 +26,6 @@ async function getDescription(id) {
   return pokemonInfo;
 }
 
-// Select all Region divs and add EventListener to get dex of the region
-const pokeRegions = document.querySelectorAll(".pokeRegion");
-pokeRegions.forEach((region) => region.addEventListener("click", selectRegion));
-
 async function selectRegion() {
   pokeRegions.forEach((region) => region.classList.remove("selectedRegion"));
   this.classList.toggle("selectedRegion");
@@ -62,16 +58,17 @@ async function selectRegion() {
   }
 }
 
+// Select all Region and add EventListener to get dex
+const pokeRegions = document.querySelectorAll(".pokeRegion");
+pokeRegions.forEach((region) => region.addEventListener("click", selectRegion));
+
 // function to get all pokemon info of a region and input on the pokeBox div
 async function getPokedex(limit, offset) {
-  // while wait to fetch all the info show a loading animation
   let total = 0;
   document.getElementById(
     "pokeBox"
   ).innerHTML = `<div class="lds-dual-ring"></div>
-      <div id="percentLoad">Loading: 0% </div>
-    `;
-  //Define a variable to store all pokemon of current dex.
+      <div id="percentLoad">Loading: 0% </div>`;
   let output = "";
   for (var i = offset + 1; i <= limit + offset; i++) {
     let currentPokemon = await getDescription(i);
@@ -88,9 +85,7 @@ async function getPokedex(limit, offset) {
       (total / limit) * 100
     )}%`;
   }
-  //insert all the information in the div pokeBox
   document.getElementById("pokeBox").innerHTML = output;
-
   const pokemons = document.querySelectorAll(".pokeCard");
   pokemons.forEach((pokemon) =>
     pokemon.addEventListener("click", pokemonDescription)
@@ -119,17 +114,33 @@ async function pokemonDescription() {
       : `<span class="${pokeDescription.type[0]} typeBadge">${pokeDescription.type[0]}</span> <span class="${pokeDescription.type[1]} typeBadge">${pokeDescription.type[1]}</span>`
   }</p>`;
 
-  formsList = "forms: ";
+  formsList = "";
   for (form in pokeDescription.forms) {
-    formsList += `<div class="formBadge" id="${pokeDescription.forms[form]}">${form} </div>`;
+    formsList += `<option class="formOption" value="${pokeDescription.forms[form]}">${form}</option>`;
   }
-  // document.getElementById("formList").innerHTML = "";
-  document.getElementById("formList").innerHTML = formsList;
-  const formBadges = document.querySelectorAll(".formBadge");
-  formBadges.forEach((form) =>
-    form.addEventListener("click", pokemonDescription)
-  );
+  document.getElementById("selectPokemonForm").innerHTML = formsList;
 }
 
+async function pokemonDescriptionForm(pokemonId) {
+  const pokeDescription = await getDescription(pokemonId);
+  document.getElementById("pokeArtwork").src = pokeDescription.artwork;
+  document.getElementById("pokeArtwork").className = "";
+  document
+    .getElementById("pokeArtwork")
+    .classList.add("artwork", `${pokeDescription.type[0]}`);
+  document.getElementById("name").innerHTML = pokeDescription.name;
+  document.getElementById("number").innerHTML = `No. ${pokeDescription.no}`;
+  document.getElementById(
+    "height"
+  ).innerHTML = `Height: ${pokeDescription.height} mts.`;
+  document.getElementById(
+    "weight"
+  ).innerHTML = `Weight: ${pokeDescription.weight} kg`;
+  document.getElementById("typeBadges").innerHTML = `<p>Type: ${
+    typeof pokeDescription.type[1] == "undefined"
+      ? `<span class="${pokeDescription.type[0]} typeBadge">${pokeDescription.type[0]}</span>`
+      : `<span class="${pokeDescription.type[0]} typeBadge">${pokeDescription.type[0]}</span> <span class="${pokeDescription.type[1]} typeBadge">${pokeDescription.type[1]}</span>`
+  }</p>`;
+}
 //to init the pokedex show the first 151 pokemons
 getPokedex(151, 0);

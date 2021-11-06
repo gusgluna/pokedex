@@ -40,7 +40,10 @@
               <span class="poison typeBadge">poison</span>
             </p>
             <div id="formList">
-              forms: <div class="formBadge">Bulbasaur</div>
+              Forms:
+              <select id="selectPokemonForm" onchange="pokemonDescriptionForm(this.value)">
+                <option value="">Bulbasaur</option>
+              </select>
             </div>
             <p id="height">Height: 0.7 mts.</p>
             <p id="weight">Weight: 6.9 kg</p>
