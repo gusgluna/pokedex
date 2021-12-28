@@ -38,6 +38,7 @@ body {
 header {
   display: flex;
   flex-direction: column;
+  height: 150px;
 }
 
 header .logo {
@@ -48,6 +49,10 @@ header .logo {
   text-align: center;
   font-size: 1.5rem;
   letter-spacing: 0.2rem;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 header nav {
@@ -72,7 +77,7 @@ header nav ul {
 header nav ul button {
   background-color: transparent;
   font-family: var(--main-font);
-  font-size: 1rem;
+  font-size: 1.3rem;
   font-weight: bold;
   display: block;
   height: 2rem;
@@ -86,26 +91,27 @@ header nav ul button:hover {
   border-bottom: 3px solid #3b4cca;
 }
 
-.selectedRegion{
-   border-bottom: 3px solid #3b4cca; 
+.selectedRegion {
+  border-bottom: 3px solid #3b4cca;
 }
 
 #pokedex {
+  height: calc(100vh - 2rem - 150px);
   display: flex;
   flex-direction: row;
-  flex-basis: auto;
+  /* border: 1px solid red; */
+  align-items: center;
 }
 
 #pokeBox {
-  width: 800px;
+  /* width: 800px; */
+  flex-grow: 7;
   padding: 10px;
   display: flex;
-  flex-wrap: wrap;
-  height: 400px;
+  flex-direction: column;
+  height: calc(100vh - 2rem - 160px);
   overflow: auto;
   align-items: center;
-  justify-content: space-around;
-  background-color: var(--main-bg-color);
   /* Hide scrollbar for IE, Edge and Firefox */
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
@@ -117,10 +123,12 @@ header nav ul button:hover {
 }
 
 #pokeDescription {
-  width: 30%;
-  height: 100%;
-  background-color: var(--main-bg-color);
-  border-right: 5px solid var(--fourth-color);
+  flex-grow: 3;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 .description > p {
@@ -134,9 +142,9 @@ header nav ul button:hover {
   font-weight: bolder;
   margin: 0 auto;
   width: calc(85% - 10px);
-  border: 3px solid black;
+  border: 3px solid transparent;
   border-radius: 10px;
-  background-color: var(--third-color);
+  background-color: var(--fourth-color);
   color: black;
 }
 
@@ -144,15 +152,20 @@ header nav ul button:hover {
   font-family: var(--main-font);
   font-size: 1rem;
   font-weight: bold;
-  border: 3px solid var(--fourth-color);
-  border-radius: 10%;
+  border: 3px solid transparent;
+  border-radius: 25px;
   margin: 5px;
-  height: 150px;
-  width: 150px;
+  height: 96px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.pokeCard > p {
-  margin: 0 auto;
+.pokeCard p {
+  font-size: 1.2rem;
+  width: 400px;
+  text-align: start;
 }
 
 .pokeCard:hover {
@@ -229,7 +242,9 @@ header nav ul button:hover {
   margin: 0 auto;
   border-radius: 10px;
   margin-top: 10px;
-  border: 3px solid black;
+  box-shadow: -2px 1px 22px 6px rgba(0, 0, 0, 0.41);
+  -webkit-box-shadow: -2px 1px 22px 6px rgba(0, 0, 0, 0.41);
+  -moz-box-shadow: -2px 1px 22px 6px rgba(0, 0, 0, 0.41);
 }
 
 .pokeDesc {
@@ -246,36 +261,24 @@ header nav ul button:hover {
   border: 1px solid black;
   border-radius: 15px;
   display: inline-block;
+  text-transform: capitalize;
   padding: 4px;
   height: auto;
-  width: auto;
+  width: 5rem;
 }
 
-.formBadge {
-  border: 1px solid black;
-  border-radius: 15px;
-  display: inline-block;
-  padding: 4px;
-  height: auto;
-  width: auto;
-  background: #616161;
-  color: white;
-}
-
-.formBadge:hover {
-  cursor: pointer;
-}
 #selectPokemonForm {
-  /* box-shadow: 0 10px 25px rgb(34, 31, 31); */
   font-family: var(--main-font);
   font-weight: bold;
   font-size: 1rem;
   padding: 0.25em 0.25em;
   border: 0;
+  text-transform: capitalize;
+  text-align: center;
 }
 
 footer {
-  flex-basis: 10vh;
+  height: 2rem;
   text-align: center;
   font-family: var(--main-font);
   font-weight: bold;
@@ -304,5 +307,104 @@ footer {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@media (max-width: 1250px) {
+  .container {
+    min-width: 100vw;
+  }
+}
+
+@media (max-width: 860px) {
+  footer {
+    display: none;
+  }
+  #pokedex {
+    height: calc(100vh - 150px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #pokeBox {
+    padding: 10px;
+    flex-direction: column;
+    height: calc(100vh - 160px);
+  }
+
+  #pokeDescription {
+    width: 100vw;
+    height: 550px;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .description {
+    text-align: center;
+    width: 250px;
+  }
+}
+
+@media (max-width: 630px) {
+  /* .container {
+    background-color: orangered;
+  } */
+  header nav ul {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+  }
+  header nav ul li {
+    flex-basis: 21%;
+  }
+  header nav p {
+    font-size: 1rem;
+  }
+  header nav ul button {
+    font-size: 1rem;
+  }
+
+  #pokeDescription {
+    width: 100vw;
+    height: calc(100vh - 180px - 230px);
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+
+  #pokeBox {
+    padding: 10px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 230px;
+    overflow: auto;
+    justify-content: center;
+  }
+
+  .pokeCard {
+    font-weight: bold;
+    border: 3px solid transparent;
+    border-radius: 25px;
+    height: 120px;
+    width: 100px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .pokeCard p {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  .description {
+    text-align: center;
+    font-size: 0.8rem;
+    margin: 0 auto;
+  }
+  header {
+    height: 180px;
+  }
+  .artwork {
+    width: 180px;
+    height: 180px;
   }
 }

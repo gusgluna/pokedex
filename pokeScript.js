@@ -73,12 +73,13 @@ async function getPokedex(limit, offset) {
   let output = "";
   for (var i = offset + 1; i <= limit + offset; i++) {
     let currentPokemon = await getDescription(i);
+    // No. ${currentPokemon.no}
     output += `
     <div class="pokeCard ${currentPokemon.type[0]}" id="${currentPokemon.id}">
       <img class="sprite" src="${currentPokemon.sprite}">
       <div class="pokeDesc">
-        <p>No. ${currentPokemon.no}</p>
-        <P><span class="pokeName">${currentPokemon.name.substr(0, 17)}</span></P>
+        <p>
+        <span class="pokeName">${currentPokemon.name.substr(0, 17)}</span></p>
       </div>
     </div>`;
     total++;
@@ -122,7 +123,7 @@ async function pokemonDescription() {
   }
   document.getElementById("selectPokemonForm").innerHTML = formsList;
 }
-// Get pokemon form description 
+// Get pokemon form description
 async function pokemonDescriptionForm(pokemonId) {
   const pokeDescription = await getDescription(pokemonId);
   document.getElementById("pokeArtwork").src = pokeDescription.artwork;
