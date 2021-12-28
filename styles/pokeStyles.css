@@ -273,7 +273,9 @@ header nav ul button:hover {
   font-size: 1rem;
   padding: 0.25em 0.25em;
   border: 0;
+  border-radius: 10px;
   text-transform: capitalize;
+  background-color: #d3dcff;
   text-align: center;
 }
 
@@ -329,6 +331,7 @@ footer {
   #pokeBox {
     padding: 10px;
     flex-direction: column;
+    width: 100vw;
     height: calc(100vh - 160px);
   }
 
@@ -366,7 +369,7 @@ footer {
 
   #pokeDescription {
     width: 100vw;
-    height: calc(100vh - 180px - 230px);
+    height: calc(100vh - 180px - 110px);
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -375,36 +378,49 @@ footer {
   #pokeBox {
     padding: 10px;
     flex-direction: row;
-    flex-wrap: wrap;
-    height: 230px;
+    height: 110px;
     overflow: auto;
-    justify-content: center;
+    align-items: center;
+    padding: 0;
   }
 
   .pokeCard {
     font-weight: bold;
     border: 3px solid transparent;
     border-radius: 25px;
-    height: 120px;
-    width: 100px;
+    height: 80px;
+    width: 80px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
   }
   .pokeCard p {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     text-align: center;
   }
   .description {
     text-align: center;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     margin: 0 auto;
+    width: 180px;
   }
   header {
     height: 180px;
   }
   .artwork {
-    width: 180px;
-    height: 180px;
+    width: 200px;
+    height: 200px;
+  }
+  .sprite {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin: 0 auto;
+  }
+  #selectPokemonForm {
+    font-size: 0.6rem;
+  }
+  .typeBadge {
+    width: 3rem;
   }
 }
