@@ -10,19 +10,22 @@
   <body>
     <div class="container">
       <header>
-        <div id="pokeLogo">
+        <div class="logo">
           <h1>Pokédex</h1>
         </div>
-        <ul id="pokeRegions">
-          <li class="pokeRegion" id="kanto">Kanto</li>
-          <li class="pokeRegion" id="johto">Johto</li>
-          <li class="pokeRegion" id="hoenn">Hoenn</li>
-          <li class="pokeRegion" id="sinnoh">Sinnoh</li>
-          <li class="pokeRegion" id="unova">Unova</li>
-          <li class="pokeRegion" id="kalos">Kalos</li>
-          <li class="pokeRegion" id="alola">Alola</li>
-          <li class="pokeRegion" id="galar">Galar</li>
-        </ul>
+        <nav>
+          <p>Select a region to explore</p>
+          <ul id="pokeRegions">
+            <li><button id="kanto" class="pokeRegion">Kanto</button></li>
+            <li><button id="johto" class="pokeRegion">Johto</button></li>
+            <li><button id="hoenn" class="pokeRegion">Hoenn</button></li>
+            <li><button id="sinnoh" class="pokeRegion">Sinnoh</button></li>
+            <li><button id="unova" class="pokeRegion">Unova</button></li>
+            <li><button id="kalos" class="pokeRegion">Kalos</button></li>
+            <li><button id="alola" class="pokeRegion">Alola</button></li>
+            <li><button id="galar" class="pokeRegion">Galar</button></li>
+          </ul>
+        </nav>
       </header>
 
       <div id="pokedex">
@@ -41,7 +44,10 @@
             </p>
             <div id="formList">
               Forms:
-              <select id="selectPokemonForm" onchange="pokemonDescriptionForm(this.value)">
+              <select
+                id="selectPokemonForm"
+                onchange="pokemonDescriptionForm(this.value)"
+              >
                 <option value="">Bulbasaur</option>
               </select>
             </div>
@@ -54,8 +60,10 @@
           <div class="lds-dual-ring"></div>
         </div>
       </div>
-
-      <footer><a href="https://www.gusgluna.com">&copy; gusgluna</a></footer>
+      <footer>
+        coded by &copy;
+        <a href="https://www.gusgluna.com">gusgluna </a>
+      </footer>
     </div>
 
     <script src="pokeScript.js"></script>
